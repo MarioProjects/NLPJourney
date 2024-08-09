@@ -2,6 +2,23 @@
 
 Here you can find some basic work related to NLP.
 
+# Index
+
+- [HF Pipeline](#hf-pipeline)
+- [HF Inference: Behind the pipeline](#hf-inference-behind-the-pipeline)
+- [HF Model Creation](#hf-model-creation)
+- [HF Tokenizers](#hf-tokenizers)
+- [HF Processing Data](#hf-processing-data)
+- [HF Finetuning Trainer](#hf-finetuning-trainer)
+- [HF Finetuning Pytorch](#hf-finetuning-pytorch)
+- [HF Finetuning Pytorch Accelerate](#hf-finetuning-pytorch-accelerate)
+- [HF Datasets](#hf-datasets)
+- [HF Datasets Huge](#hf-datasets-huge)
+- [HF Tokenizers Training](#hf-tokenizers-training)
+- [HF Tokenizers Offsets NER](#hf-tokenizers-offsets-ner)
+- [HF Tokenizers Offsets QA](#hf-tokenizers-offsets-qa)
+
+
 ## HF Pipeline
 
 Checkout [hf_pipeline.ipynb](hf_pipeline.ipynb) for examples of using Hugging Face's pipeline for NLP tasks. There are several tasks you can try out of the box without too much effort.

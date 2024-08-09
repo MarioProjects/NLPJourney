@@ -1,5 +1,11 @@
 # Main NLP Taks
 
+Here you can find at each subfolder a specific NLP task with some projects and examples.
+
+# Index
+
+- [Semantic Search](#semantic-search)
+
 ## Semantic Search
 
 Semantic search aims to improve search accuracy by understanding the searcher's intent and the contextual meaning of terms. The advantages are:
