@@ -1,0 +1,2 @@
+transformers[sentencepiece]==4.43.3
+evaluate==0.4.2
