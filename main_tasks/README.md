@@ -1,41 +1,9 @@
 # Main NLP Taks
 
 Here you can find at each subfolder a specific NLP task with some projects and examples.
+Each section can be taken independently and usually will show you how to train or use a model with the Hugging Face `Trainer API` or with your own training loop, using Hugging Face Accelerate,for example. Feel free to skip either part and focus on the one that interests you the most: the Trainer API is great for fine-tuning or training your model without worrying about what’s going on behind the scenes, while the training loop with Accelerate will let you customize any part you want more easily.
 
 # Index
 
-- [Semantic Search](#semantic-search)
-
-## Semantic Search
-
-Semantic search aims to improve search accuracy by understanding the searcher's intent and the contextual meaning of terms. The advantages are:
-
-- Better handling of synonyms and context.
-- Improved search relevance.
-- Ability to find related concepts, not just exact matches.
-
-### Key Techniques
-
-- **Word Embeddings**: e.g., Word2Vec, GloVe.
-- **Sentence Embeddings**: e.g., BERT, USE (Universal Sentence Encoder).
-- **Dense Retrieval**: Using neural networks for matching queries and documents.
-- **Approximate Nearest Neighbor (ANN) Search**:
-  - FAISS (Facebook AI Similarity Search).
-  - Annoy (Spotify).
-  - HNSW (Hierarchical Navigable Small World).
-
-### Common Tasks
-
-- Document retrieval: Finding relevant documents based on a query
-- Question answering: Providing answers to questions based on a document corpus.
-- Information extraction: Extracting structured information from unstructured text.
-- Text classification: Assigning categories or labels to text data.
-- Clustering: Grouping similar documents together.
-- Chatbots: Conversational agents that can understand and respond to user queries.
-
-### Example Projects
-
-- Building a semantic search engine for a large document corpus.
-- Implementing a chatbot with improved query understanding.
-- Creating a recommendation system based on content similarity.
-
+- [Token Classification](token_classification/README.md): Token classification is a generic task that encompasses any problem that can be formulated as “attributing a label to each token in a sentence.”
+- [Semantic Search](semantic_search/README.md): Semantic search is a search technique that takes the meaning of words into account rather than just the presence of the words themselves. This is done by embedding the words into a high-dimensional space where the distance between the vectors is a measure of the semantic similarity between the words.

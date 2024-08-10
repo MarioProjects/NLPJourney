@@ -197,6 +197,14 @@ my_dataset = my_dataset.map(lowercase_title, batched=True)
 - [ML CO2 Impact]((https://mlco2.github.io/impact/)): Website to calculate the carbon footprint of your machine learning models. Is integrated with Hugging Face's model hub. To learn more about this, you can read this [blog post](https://huggingface.co/blog/carbon-emissions-on-the-hub) which will show you how to generate an `emissions.csv` file with an estimate of the footprint of your training, as well as the [documentation](https://huggingface.co/docs/hub/model-cards-co2) of Hugging Face Transformers addressing this topic.
 
 
+## Tools Table
+
+| Tool  | Description                                                                                                                                    | Tags                 |
+|-------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| [vLLM](https://docs.vllm.ai/en/latest/)  | vLLM is a fast and easy-to-use library for LLM inference and serving.                                                                          | LLM - Serving        |
+| [LoRAX](https://loraexchange.ai/) | Serve thousands of fine-tuned models on a single GPU, dramatically reducing the cost of serving without compromising on throughput or latency. | LLM - LoRA - Serving |
+
+
 # Useful Links
 
 - [Dataset loading documentation](https://huggingface.co/docs/datasets/loading): Guide to learn how to load a dataset from: The Hub without a dataset loading script; Local loading script; Local files; In-memory data; Offline; A specific slice of a split. Audio, Image and Text datasets.
