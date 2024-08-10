@@ -9,6 +9,7 @@ Token classification is a generic task encompasses any problem that can be formu
 - [Example Projects](#example-projects)
 - [Evaluation Metrics](#evaluation-metrics)
 - [Projects](#projects)
+  - [Named Entity Recognition (NER)](#ner)
 
 
 ## Key Techniques
