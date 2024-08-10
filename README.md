@@ -217,7 +217,7 @@ my_dataset = my_dataset.map(lowercase_title, batched=True)
 
 - [ ] TF-IDF
 - [ ] Sentiment Analysis
-- [x] [Named Entity Recognition (Token Classification)](main_tasks/token_classification/README.md)
+- [x] [Named Entity Recognition (Token Classification)](main_tasks/token_classification)
 - [ ] Fine-tuning a masked language model
 - [ ] Translation
 - [ ] Summarization
@@ -225,7 +225,7 @@ my_dataset = my_dataset.map(lowercase_title, batched=True)
 - [ ] Causal Language Modeling
 - [ ] Text Generation: Free Form
 - [ ] Text Generation: Structured
-- [x] [Semantic Search](main_tasks/semantic_search/README.md)
+- [x] [Semantic Search](main_tasks/semantic_search)
 - [ ] Retrieval Augmented Generation
 
 ## Advanced NLP Tasks
