@@ -19,6 +19,7 @@ This repository is a collection of notes, code snippets, and resources for learn
     - [Accelerate](#accelerate)
     - [Dataset map() batched](#dataset-map-batched)
     - [Environment Impact](#environment-impact)
+    - [Tools Table](#tools-table)
 - [Useful Links](#useful-links)
 - [To-Do](#to-do)
   - [Main NLP Tasks](#main-nlp-tasks)
@@ -216,7 +217,7 @@ my_dataset = my_dataset.map(lowercase_title, batched=True)
 
 - [ ] TF-IDF
 - [ ] Sentiment Analysis
-- [ ] Named Entity Recognition (Token Classification)
+- [x] [Named Entity Recognition (Token Classification)](main_tasks/token_classification/README.md)
 - [ ] Fine-tuning a masked language model
 - [ ] Translation
 - [ ] Summarization
@@ -224,7 +225,7 @@ my_dataset = my_dataset.map(lowercase_title, batched=True)
 - [ ] Causal Language Modeling
 - [ ] Text Generation: Free Form
 - [ ] Text Generation: Structured
-- [x] Semantic Search
+- [x] [Semantic Search](main_tasks/semantic_search/README.md)
 - [ ] Retrieval Augmented Generation
 
 ## Advanced NLP Tasks
