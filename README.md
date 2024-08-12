@@ -24,9 +24,11 @@ This repository is a collection of notes, code snippets, and resources for learn
 - [To-Do](#to-do)
   - [Main NLP Tasks](#main-nlp-tasks)
   - [Advanced NLP Tasks](#advanced-nlp-tasks)
+  - [Mini Projects](#mini-projects)
   - [Other](#other)
 - [Credits](#credits)
-
+  - [Courses](#courses)
+  - [Posts & Articles](#posts--articles)
 
 
 # What is NLP?
@@ -191,6 +193,13 @@ def lowercase_title(batch):
 my_dataset = my_dataset.map(lowercase_title, batched=True)
 ```
 
+## Custom Data Collator
+
+When using a model that requires a specific data collator, we can create a custom data collator. You can find an example in [this notebook](main_tasks/masked_language_modeling/hf_mlm_domain-adaptation.ipynb) about masked language modeling and whole word masking.
+
+A data collator is just a function that takes a list of samples and converts them into a batch.
+
+> By default, the Trainer will remove any columns that are not part of the model’s forward() method. This means that if, for example, you’re using the whole word masking collator, you’ll also need to set `remove_unused_columns=False` to ensure we don’t lose the word_ids column during training.
 
 
 ## Environment Impact
@@ -228,18 +237,42 @@ my_dataset = my_dataset.map(lowercase_title, batched=True)
 - [x] [Semantic Search](main_tasks/semantic_search)
 - [ ] Retrieval Augmented Generation
 
+
 ## Advanced NLP Tasks
 
 - [ ] Visual Document Understanding - Parsing: [Donut Tutorial](https://www.philschmid.de/fine-tuning-donut)
+- [ ] Review [Unstloth Documentation](https://docs.unsloth.ai/) and Projects
+  - [ ] [Chat Templates](https://docs.unsloth.ai/basics/chat-templates)
+  - [ ] [Reward Modelling](https://docs.unsloth.ai/basics/reward-modelling-dpo-and-orpo)
+  - [ ] & More - Create a folder with examples and projects
+
+## Mini Projects
+
+- [ ] Improved sequence classification: Compare the performance of a base model finetuned on IMDB with a model previously finetuned with MLM on the same dataset and later finetuned on IMDB for sequence classification.
+
 
 ## Other
 
+
 - [ ] [Large Language Model Course - Maxime Labonne](https://github.com/mlabonne/llm-course)
-- [ ] [LLM Engineer's Handbook - Maxime Labonne](https://www.amazon.com/dp/1836200072?ref=cm_sw_r_cp_ud_dp_ZFR4XZPT7EY41ZE1M5X9&ref_=cm_sw_r_cp_ud_dp_ZFR4XZPT7EY41ZE1M5X9&social_share=cm_sw_r_cp_ud_dp_ZFR4XZPT7EY41ZE1M5X9)
-- [ ] [Building LLMs for Production - Louis-François Bouchard](https://www.amazon.com/Building-LLMs-Production-Reliability-Fine-Tuning/dp/B0D4FFPFW8)
+- [ ] [Book | LLM Engineer's Handbook - Maxime Labonne](https://www.amazon.com/dp/1836200072?ref=cm_sw_r_cp_ud_dp_ZFR4XZPT7EY41ZE1M5X9&ref_=cm_sw_r_cp_ud_dp_ZFR4XZPT7EY41ZE1M5X9&social_share=cm_sw_r_cp_ud_dp_ZFR4XZPT7EY41ZE1M5X9)
+- [ ] [Book | Building LLMs for Production - Louis-François Bouchard](https://www.amazon.com/Building-LLMs-Production-Reliability-Fine-Tuning/dp/B0D4FFPFW8)
+- [ ] [Fine-tune Llama 3.1 Ultra-Efficiently with Unsloth](https://mlabonne.github.io/blog/posts/2024-07-29_Finetune_Llama31.html): A comprehensive overview of supervised fine-tuning.
 
 
 # Credits
 ## Courses
 
 - [Hugging Face NLP Course](https://huggingface.co/learn/nlp-course)
+
+## Posts & Articles
+
+- [Unsloth](https://github.com/unslothai/unsloth): UnslothAI is a parameter-efficient fine-tuning library for LLMs that accelerates fine-tuning by 2-5 times while using 70% less memory.
+- [RAG using Llama 3 by Meta AI - Lightning AI](https://lightning.ai/lightning-ai/studios/rag-using-llama-3-1-by-meta-ai?query=llama+3.1): A studio building a completely self-hosted "Chat with your Docs" RAG application using Llama-3, served locally through Ollama.
+- [Create synthetic datasets with Llama 3.1 - Lightning AI](https://lightning.ai/lightning-ai/studios/create-synthetic-datasets-with-llama-3-1?query=llama+3.1): Laverage Llama 3.1 models and [Distilabel](https://distilabel.argilla.io/latest/), an open-source framework for AI engineers, to create and evaluate synthetic data.
+- [Finetune and Deploy Llama 3.1 8B - Lightning AI](https://lightning.ai/lightning-ai/studios/finetuning-and-serving-llama-3-1-8b): A studio that shows how to finetune and deploy a Llama 3.1 8B model using [LitGPT](https://github.com/Lightning-AI/litgpt).
+- [Prompt Engineering vs Finetuning vs RAG](https://myscale.com/blog/prompt-engineering-vs-finetuning-vs-rag/): Pros and cons of each technique. This is important because it will help you to understand when and how to use these techniques effectively.
+- [Safeguarding LLMs with Guardrails](https://towardsdatascience.com/safeguarding-llms-with-guardrails-4f5d9f57cff2): Given that the open-ended nature of LLM-driven applications can produce responses that may not align with an organization’s guidelines or policies, a set of safety measurements and actions are becoming table stakes for maintaining trust in generative AI.
+- [The Ultimate Guide to LLM Fine Tuning: Best Practices & Tools](https://www.lakera.ai/blog/llm-fine-tuning-guide): Explore various Large Language Models fine tuning methods and learn about their benefits and limitations.
+- [Evaluating Large Language Models: Methods, Best Practices & Tools](https://www.lakera.ai/blog/large-language-model-evaluation): Explore 7 effective methods, best practices, and evolving frameworks for assessing LLMs' performance and impact across industries.
+
