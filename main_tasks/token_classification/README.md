@@ -1,6 +1,6 @@
 # Token Classification
 
-Token classification is a generic task encompasses any problem that can be formulated as “attributing a label to each token in a sentence,”.
+Token classification is a generic task encompasses any problem that can be formulated as “attributing a label to each token in a sentence”.
 
 # Index
 

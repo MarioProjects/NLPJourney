@@ -224,7 +224,9 @@ A data collator is just a function that takes a list of samples and converts the
 
 ## Main NLP Tasks
 
-- [ ] TF-IDF
+- [ ] [Sequence Classification](main_tasks/sequence_classification)
+  - [x] BERT
+  - [ ] TF-IDF
 - [ ] Sentiment Analysis
 - [x] [Named Entity Recognition (Token Classification)](main_tasks/token_classification)
 - [ ] Fine-tuning a masked language model
