@@ -10,6 +10,7 @@ We can use any **plain text dataset** with a language model tokenizer.
 - [Example Projects](#example-projects)
 - [Evaluation Metrics](#evaluation-metrics)
 - [Projects](#projects)
+  - [Domain Adaptation](#domain-adaptation)
 
 ## Key Techniques
 
@@ -29,8 +30,8 @@ We can use any **plain text dataset** with a language model tokenizer.
 
 Some potential metrics could be:
 
-- Perplexity
-- Accuracy
+- Perplexity: The perplexity of a language model on a test set is the exponentiated average negative log-likelihood of the test set, normalized by the number of words.
+- Accuracy: The percentage of correctly predicted tokens.
 
 ## Projects
 

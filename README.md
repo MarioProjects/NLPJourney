@@ -232,11 +232,9 @@ A data collator is just a function that takes a list of samples and converts the
 - [ ] Translation
 - [ ] Summarization
 - [ ] Question Answering
-- [ ] Causal Language Modeling
-- [ ] Text Generation: Free Form
-- [ ] Text Generation: Structured
+- [x] [Causal Language Modeling](main_tasks/causal_language_modeling)
 - [x] [Semantic Search](main_tasks/semantic_search)
-- [ ] Retrieval Augmented Generation
+- [ ] Retrieval Augmented Generation (RAG)
 
 
 ## Advanced NLP Tasks
@@ -244,7 +242,7 @@ A data collator is just a function that takes a list of samples and converts the
 - [ ] Visual Document Understanding - Parsing: [Donut Tutorial](https://www.philschmid.de/fine-tuning-donut)
 - [ ] Review [Unstloth Documentation](https://docs.unsloth.ai/) and Projects
   - [ ] [Chat Templates](https://docs.unsloth.ai/basics/chat-templates)
-  - [ ] [Reward Modelling](https://docs.unsloth.ai/basics/reward-modelling-dpo-and-orpo)
+  - [ ] [Reward Modeling](https://docs.unsloth.ai/basics/reward-modelling-dpo-and-orpo)
   - [ ] & More - Create a folder with examples and projects
 
 ## Mini Projects
