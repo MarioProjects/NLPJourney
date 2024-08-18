@@ -244,6 +244,10 @@ A data collator is just a function that takes a list of samples and converts the
   - [ ] [Chat Templates](https://docs.unsloth.ai/basics/chat-templates)
   - [ ] [Reward Modeling](https://docs.unsloth.ai/basics/reward-modelling-dpo-and-orpo)
   - [ ] & More - Create a folder with examples and projects
+- [ ] [Instruction-Following SFT](https://wandb.ai/capecape/alpaca_ft/reports/How-to-Fine-Tune-an-LLM-Part-1-Preparing-a-Dataset-for-Instruction-Tuning--Vmlldzo1NTcxNzE2). [Hermes 3](https://nousresearch.com/hermes3/) proposes [Completions Only](https://huggingface.co/docs/trl/sft_trainer#train-on-completions-only) cross-entropy loss
+  - [ ] Completions Only
+- [ ] DPO
+- [ ] ORPO
 
 ## Mini Projects
 
