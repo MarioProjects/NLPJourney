@@ -6,6 +6,7 @@ This repository is a collection of notes, code snippets, and resources for learn
 
 # Index
 
+- [Project Overview](#project-overview)
 - [What is NLP?](#what-is-nlp)
 - [Learnings](#learnings)
   - [Model heads: Making sense out of numbers](#model-heads-making-sense-out-of-numbers)
@@ -19,6 +20,8 @@ This repository is a collection of notes, code snippets, and resources for learn
     - [Accelerate](#accelerate)
     - [Dataset map() batched](#dataset-map-batched)
     - [Environment Impact](#environment-impact)
+    - [Training Tricks](#training-tricks)
+      - [Memory Efficient Training](#memory-efficient-training)
     - [Tools Table](#tools-table)
 - [Useful Links](#useful-links)
 - [To-Do](#to-do)
@@ -29,6 +32,31 @@ This repository is a collection of notes, code snippets, and resources for learn
 - [Credits](#credits)
   - [Courses](#courses)
   - [Posts & Articles](#posts--articles)
+
+
+# Project Overview
+
+```
+├── basics       <- Hugging Face basic concepts and examples
+│   ├── hf_pipeline               <- NLP pipelines examples
+│   ├── hf_inference              <- Breakdown pipeline components
+│   ├── hf_model_creation         <- Instantiate models
+│   ├── hf_tokenizers             <- Tokenizers basics
+│   ├── hf_processing_data        <- Loading dataset from Hub
+│   ├── hf_finetuning             <- Basic fine-tuning task
+│   ├── hf_datasets               <- Dataset operations
+│   ├── hf_tokenizers_training    <- Adapt tokenizers to new data
+│   └── hf_tokenizers_offsets     <- Tokenizers offset mapping
+|
+└──  mains_tasks  <- Tackling main NLP tasks
+    ├── sequence_classification   <- Classify sequences of tokens
+    ├── token_classification      <- Set labels for each token
+    ├── masked_language_modeling  <- Filling blanks for domain adaptation
+    ├── causal_language_modeling  <- Predict next token
+    └── semantic_search           <- Retrieve similar documents
+```
+
+*Only the most important files and directories are listed above.*
 
 
 # What is NLP?
@@ -207,12 +235,29 @@ A data collator is just a function that takes a list of samples and converts the
 - [ML CO2 Impact]((https://mlco2.github.io/impact/)): Website to calculate the carbon footprint of your machine learning models. Is integrated with Hugging Face's model hub. To learn more about this, you can read this [blog post](https://huggingface.co/blog/carbon-emissions-on-the-hub) which will show you how to generate an `emissions.csv` file with an estimate of the footprint of your training, as well as the [documentation](https://huggingface.co/docs/hub/model-cards-co2) of Hugging Face Transformers addressing this topic.
 
 
+## Training Tricks
+
+### Memory Efficient Training
+
+- **Gradient Accumulation**: Accumulate gradients over multiple steps before performing an optimization step. This is useful when the model is too large and you have to use a smaller batch size but still want to use a large effective batch size for stable training.
+- **Gradient Checkpointing**: Trade compute for memory by recomputing the forward pass of the model during backpropagation. This is useful when the model is too large to fit in memory.
+- **Mixed Precision Training**: Use half-precision floating point arithmetic to reduce memory usage and speed up training.
+- **LoRA**: There are methods that focus on fine-tuning large models by adding *adapter layers* to the model during fine-tuning, which can reduce the memory footprint of the model. After fine-tuning, the adapter layers can be merged into the model, introducing no additional parameters nor computational overhead.
+- **Quantization**: There are tools like Unsloth that provide quantized models for training and inference, which can be used to reduce the memory footprint of the model.
+- **Freeze Layers**: Freeze the weights of some layers during training to reduce the memory footprint of the model.
+
+
 ## Tools Table
 
 | Tool  | Description                                                                                                                                    | Tags                 |
 |-------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
 | [vLLM](https://docs.vllm.ai/en/latest/)  | vLLM is a fast and easy-to-use library for LLM inference and serving.                                                                          | LLM - Serving        |
 | [LoRAX](https://loraexchange.ai/) | Serve thousands of fine-tuned models on a single GPU, dramatically reducing the cost of serving without compromising on throughput or latency. | LLM - LoRA - Serving |
+| [LLM Compressor](https://github.com/vllm-project/llm-compressor)  | Easy-to-use library for optimizing models for deployment with vllm  |  LLM - Compression   |
+| [Ludwig](https://github.com/ludwig-ai/ludwig)  |  Ludwig is a low-code framework for building custom AI models like LLMs and other deep neural networks.  | LLM - Fine-Tuning - Low-Code  |
+| [Axolotl](https://github.com/axolotl-ai-cloud/axolotl)  |  Axolotl is a tool designed to streamline the fine-tuning of various AI models, offering support for multiple configurations and architectures. | LLM - Fine-Tuning - Low-Code  |
+| [LitGPT](https://github.com/Lightning-AI/litgpt)  |  High-performance LLMs with recipes to pretrain, finetune, deploy at scale  | LLM - Fine-Tuning - Low-Code  |
+|  [Distilabel](https://distilabel.argilla.io/latest/)  | Synthesize data for AI and add feedback on the fly!  | Data - Synthetic |
 
 
 # Useful Links
