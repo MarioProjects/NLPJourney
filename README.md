@@ -10,6 +10,7 @@ This repository is a collection of notes, code snippets, and resources for learn
 - [What is NLP?](#what-is-nlp)
 - [Learnings](#learnings)
   - [Model heads: Making sense out of numbers](#model-heads-making-sense-out-of-numbers)
+  - [Callbacks](#callbacks)
   - [Huggin Face storing](#huggin-face-storing)
   - [Tokenizers Algorithms](#tokenizers-algorithms)
 - [Toolbox](#toolbox)
