@@ -2,7 +2,7 @@
 
 Here you can find some basic work related to NLP.
 
-# Index
+## Index
 
 - [HF Pipeline](#hf-pipeline)
 - [HF Inference: Behind the pipeline](#hf-inference-behind-the-pipeline)

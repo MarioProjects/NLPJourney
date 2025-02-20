@@ -213,3 +213,6 @@ tmp
 # json files, unless they are in the data folder
 *.json
 !data/*.json
+
+# sft outputs
+sft/sft_output
