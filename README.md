@@ -41,19 +41,24 @@ This repository is a collection of notes, code snippets, and resources for learn
 │   ├── hf_pipeline               <- NLP pipelines examples
 │   ├── hf_inference              <- Breakdown pipeline components
 │   ├── hf_model_creation         <- Instantiate models
-│   ├── hf_tokenizers             <- Tokenizers basics
+|   ├── hf_tokenizers             <- Tokenizers basics
 │   ├── hf_processing_data        <- Loading dataset from Hub
 │   ├── hf_finetuning             <- Basic fine-tuning task
 │   ├── hf_datasets               <- Dataset operations
 │   ├── hf_tokenizers_training    <- Adapt tokenizers to new data
 │   └── hf_tokenizers_offsets     <- Tokenizers offset mapping
 |
-└──  mains_tasks  <- Tackling main NLP tasks
-    ├── sequence_classification   <- Classify sequences of tokens
-    ├── token_classification      <- Set labels for each token
-    ├── masked_language_modeling  <- Filling blanks for domain adaptation
-    ├── causal_language_modeling  <- Predict next token
-    └── semantic_search           <- Retrieve similar documents
+├──  mains_tasks  <- Tackling main NLP tasks
+|   ├── sequence_classification   <- Classify sequences of tokens
+|   ├── token_classification      <- Set labels for each token
+|   ├── masked_language_modeling  <- Filling blanks for domain adaptation
+|   ├── causal_language_modeling  <- Predict next token
+|   └── semantic_search           <- Retrieve similar documents
+|
+└── sft           <- Supervised Fine-Tuning
+    ├── chat_templates            <- Chat templates
+    ├── sfttrainer                <- Model training for completions
+    └── lora                      <- LoRA fine-tuning
 ```
 
 *Only the most important files and directories are listed above.*
