@@ -13,10 +13,6 @@
 Chat templates **structure interactions** between users and AI models, ensuring consistent and contextually appropriate responses. They include components like system prompts and role-based messages.
 
 
-
-
-
-
 ## 2️⃣ Supervised Fine-Tuning
 
 Supervised Fine-Tuning (SFT) is a critical process for **adapting pre-trained language models to specific tasks**. It involves training the model on a task-specific dataset with labeled examples. For a detailed guide on SFT, including key steps and best practices, see [The supervised fine-tuning section of the TRL documentation](https://huggingface.co/docs/trl/en/sft_trainer).
