@@ -120,6 +120,13 @@ outputs = model(**inputs)
 # outputs.logits (batch_size, num_labels)
 ```
 
+## Callbacks
+
+Callbacks are a way to customize the training loop of the Trainer. They are functions that are called at different points during training, and can be used to modify the behavior of the Trainer. For example, we can use a callback to log the training loss at the end of each epoch, or to save the model to disk every few steps. Some important Callbacks are:
+
+- [`EarlyStoppingCallback`](https://huggingface.co/docs/transformers/en/main_classes/callback#transformers.EarlyStoppingCallback): Stops training when a metric has stopped improving.
+- [`Custom Callbacks`](https://huggingface.co/docs/transformers/en/main_classes/callback#transformers.TrainerCallback): Create your own callbacks by subclassing `TrainerCallback`.
+
 ## Huggin Face storing
 
 ### Models
