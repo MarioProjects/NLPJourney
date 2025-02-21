@@ -20,9 +20,13 @@ This repository is a collection of notes, code snippets, and resources for learn
     - [Sharing a Model at Hugging Face](#sharing-a-model-at-hugging-face)
     - [Accelerate](#accelerate)
     - [Dataset map() batched](#dataset-map-batched)
+    - [Custom Data Collator](#custom-data-collator)
     - [Environment Impact](#environment-impact)
     - [Training Tricks](#training-tricks)
       - [Memory Efficient Training](#memory-efficient-training)
+    - [Chat Training](#chat-training)
+      - [Chat Training Template](#chat-training-template)
+      - [Chat Inference Template](#chat-inference-template)
     - [Tools Table](#tools-table)
 - [Useful Links](#useful-links)
 - [To-Do](#to-do)
@@ -258,6 +262,47 @@ A data collator is just a function that takes a list of samples and converts the
 - **LoRA**: There are methods that focus on fine-tuning large models by adding *adapter layers* to the model during fine-tuning, which can reduce the memory footprint of the model. After fine-tuning, the adapter layers can be merged into the model, introducing no additional parameters nor computational overhead.
 - **Quantization**: There are tools like Unsloth that provide quantized models for training and inference, which can be used to reduce the memory footprint of the model.
 - **Freeze Layers**: Freeze the weights of some layers during training to reduce the memory footprint of the model.
+
+
+## Chat Training
+
+### Chat Training Template
+
+[Daset format support](https://huggingface.co/docs/trl/sft_trainer#dataset-format-support). The `SFTTrainer` supports popular dataset formats. This allows you to pass the dataset to the trainer without any pre-processing directly. The following formats are supported:
+
+- conversational format
+```python
+{"messages": [{"role": "system", "content": "You are helpful"}, {"role": "user", "content": "What's the capital of France?"}, {"role": "assistant", "content": "..."}]}
+{"messages": [{"role": "system", "content": "You are helpful"}, {"role": "user", "content": "Who wrote 'Romeo and Juliet'?"}, {"role": "assistant", "content": "..."}]}
+{"messages": [{"role": "system", "content": "You are helpful"}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "..."}]}
+```
+
+- instruction format
+```python
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+```
+
+If your dataset uses one of the above formats, you can **directly pass it to the trainer without pre-processing**. The SFTTrainer will then format the dataset for you using the defined format from the model’s tokenizer with the `apply_chat_template` method. Checkout the [example](sft/sfttrainer.ipynb) notebook.
+
+### Chat Inference Template
+
+At inference time, it is important to use the same format as the training data. The model and the tokenizer must be loaded with the same format as the training data. Once loaded, when we want to generate completions, we need to `apply_chat_template` to the input data with `add_generation_prompt` set to `True`. This will format the input data in the same format as the training data.
+
+```python
+messages = [
+    {"role": "user", "content": "Continue the sequence: 1, 1, 2, 3, 5, 8,"},
+]
+inputs = tokenizer.apply_chat_template(
+    messages,
+    tokenize = True,
+    add_generation_prompt = True, # Must add for generation
+    return_tensors = "pt",
+).to("cuda")
+```
+
+Note that we must add the same system message (if we used it during training) to the input data. You can also verify the format with `tokenize` set to `True` and `False` to same inputs for training and inference.
 
 
 ## Tools Table
