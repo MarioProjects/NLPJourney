@@ -27,6 +27,8 @@ Low Rank Adaptation (LoRA) is a technique for fine-tuning language models by add
 
 Checkout the Jupyter Notebook [here](lora.ipynb) for a detailed guide on using LoRA for fine-tuning language models with Hugging Face's `transformers` library.
 
+> Note: We should ensure that and `<eos>` is placed at the end of each sample in the dataset!
+
 
 ## 4️⃣ Evaluation
 
