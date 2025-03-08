@@ -7,6 +7,9 @@ Models with  `-unsloth` suffix are [dynamic 4-bit](https://unsloth.ai/blog/dynam
 ## Index
 
 - [Fine-tuning Guide](#fine-tuning-guide)
+  - [Choose the Right Model + Method](#choose-the-right-model--method)
+  - [Understand Model Parameters](#understand-model-parameters)
+  - [Training](#training)
 - [Datasets 101](#datasets-101)
 
 
@@ -68,6 +71,61 @@ We generally recommend keeping the default settings unless you need longer train
 - `gradient_accumulation_steps = 4` – Simulates a larger batch size without increasing memory usage.
 - `max_steps = 60` – Speeds up training. For full runs, replace with num_train_epochs = 1 (1–3 epochs recommended to avoid overfitting).
 - `learning_rate = 2e-4` – Lower for slower but more precise fine-tuning. Try values like 1e-4, 5e-5, or 2e-5.
+
+
+### Extra: Resume Training
+
+Checkpointing allows you to [save your finetuning progress](https://docs.unsloth.ai/basics/finetuning-from-last-checkpoint) so you can pause it and then continue.
+
+You must edit the `Trainer` first to add `save_strategy` and `save_steps`. Below saves a checkpoint every 50 steps to the folder `outputs`.
+
+```python
+trainer = SFTTrainer(
+    ....
+    args = TrainingArguments(
+        ....
+        output_dir = "outputs",
+        save_strategy = "steps",
+        save_steps = 50,
+    ),
+)
+```
+
+Then in the trainer do:
+
+```python
+trainer_stats = trainer.train(resume_from_checkpoint = True)
+```
+
+Which will start from the latest checkpoint and continue training. For [Weights & Biases integration](https://docs.unsloth.ai/basics/finetuning-from-last-checkpoint#wandb-integration), we can train our model by setting:
+
+```python
+import os
+
+os.environ["WANDB_PROJECT"] = "<name>"
+os.environ["WANDB_LOG_MODEL"] = "checkpoint"
+
+trainer = SFTTrainer(
+    ....
+    args = TrainingArguments(
+        ....
+        report_to = "wandb",
+        logging_steps = 1, # Change if needed
+        save_steps = 100 # Change if needed
+        run_name = "<name>" # (Optional)
+    ),
+)
+```
+
+After training, to resume training, you can use the following code:
+
+```python
+import wandb
+run = wandb.init()
+artifact = run.use_artifact('<username>/<Wandb-project-name>/<run-id>', type='model')
+artifact_dir = artifact.download()
+trainer.train(resume_from_checkpoint=artifact_dir)
+```
 
 
 ## Datasets 101
