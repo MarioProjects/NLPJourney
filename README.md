@@ -266,6 +266,8 @@ A data collator is just a function that takes a list of samples and converts the
 
 ## Chat Training
 
+Take care of the format of the data when training a model for chat. The format of the data is important for the model to understand the context of the conversation. **Ensure** that the turns contain the `<eos>` token at the end of each turn. The model will understand that the conversation has ended and the next turn is a new conversation. Checkout how this token appears for [function calling finetuning](agents/finetune_function_calling.ipynb), or for [continual pretraining](unsloth/continual_pretraining.ipynb).
+
 ### Chat Training Template
 
 [Daset format support](https://huggingface.co/docs/trl/sft_trainer#dataset-format-support). The `SFTTrainer` supports popular dataset formats. This allows you to pass the dataset to the trainer without any pre-processing directly. The following formats are supported:
