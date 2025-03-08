@@ -218,5 +218,11 @@ tmp
 sft/sft_output
 sft/checkpoints
 agents/checkpoints
+unsloth/outputs
 unsloth/checkpoints
+unsloth/ftk-outputs
 agents/hub
+
+# independently of the location remove
+unsloth_compiled_cache
+_unsloth_temporary_saved_buffers
